@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Muenchen Rikscha</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/register.css" rel="stylesheet" type="text/css">
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/index.html">Rickscha Wala</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/index.html#g-maps">map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/index.html#tour-price">Tour Price</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/index.html#book-tour">Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/index.html#contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/index.html#team">Our Drivers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/index.html#portfolio">Tours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/driverPortal.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- div register -->
+    <div id="form_reg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h1 class="text-uppercase">Driver Registration</h1>
+                        <p class="item-intro text-muted">If the driver is not logged in he will come to this page</p>
+                        <center>
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address:</label>
+                                    <input type="email" class="form-control" id="emailUsr" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password:</label>
+                                    <input type="password" class="form-control" id="passwordUsr" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword2">Confirm Password:</label>
+                                    <input type="password" class="form-control" id="confirm_passwordUsr" placeholder="Confirm Password">
+                                </div>
+                                <p id="errorMsg"></p>
+                                <button type="button" class="btn btn-success" onclick="register()">Register</button>
+                            </form>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- div form  -->
+    <div id="form_change_detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h1 class="text-uppercase">Fill Registration form</h1>
+                        <p class="item-intro text-muted">After the driver has created the account he will come to this page!</p>
+                        <center>
+                            <form>
+                                <div class="form-group">
+                                    <label for="name-form">Name:</label>
+                                    <div class="form-inline" id="name-form">
+                                        <input type="text" class="form-control" id="frstName" placeholder="First Name">
+                                        <input type="text" class="form-control" id="lstName" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phnNumber">Phone Number</label>
+                                    <input type="number" class="form-control" id="phnNumber" placeholder="Phone Number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dobUsr">Date of Birth:</label>
+                                    <input type="date" class="form-control" id="dobUsr" placeholder="DD/MM/YYYY">
+                                </div>
+                                <div class="form-group">
+                                    <label for="adrUsr">Address:</label>
+                                    <input type="text" class="form-control" id="adrUsr" placeholder="Address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ctyUsr">City:</label>
+                                    <input type="text" class="form-control" id="ctyUsr" placeholder="City">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pinUsr">Zip Code:</label>
+                                    <input type="number" class="form-control" id="pinUsr" placeholder="Zip Code">
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label for="photoFile">Upload photo (File size
+                                        < 512kb)</label>
+                                            <input id="photoFile" accept="image/*" class="form-control" type="file">
+                                </div>
+                                <div class="form-group">
+                                    <label for="licenseFile">Upload License (File size
+                                        < 1Mb)</label>
+                                            <input id="licenseFile" accept=".pdf,.doc,.docx" class="form-control" type="file">
+                                </div> -->
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="agreeCond"> Save changes? (This cannot be undone!)
+                                    </label>
+                                </div>
+                                <p id="errorMsg1"></p>
+                                <button type="button" class="btn btn-success" onclick="submitDetails()">Save</button>
+                            </form>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- div progress-bar -->
+    <!-- <div id="progress_bar_div">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="modal-body">
+                        <h2 id="progressPB_header">Upload Progress</h2>
+                        <p id="errorMsg2"></p>
+                        <div class="progress">
+                            <div id="progressBarPB" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 100%;">
+                                <span id="progVal_dataChange"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <span class="copyright">Copyright &copy;2018 Munich Rikscha</span>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-twitter "></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-facebook"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline quicklinks">
+            <li class="list-inline-item">
+              <a href="/privacy_policy.html">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyC3U-KEqnO_dbKKUqurcUpIGxBJjt5k5Cs",
+            authDomain: "munrikscha.firebaseapp.com",
+            databaseURL: "https://munrikscha.firebaseio.com",
+            projectId: "munrikscha",
+            storageBucket: "munrikscha.appspot.com",
+            messagingSenderId: "851973346657"
+        };
+        firebase.initializeApp(config);
+        var storage = firebase.storage();
+    </script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/register.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+
+
+
+</body>
+
+</html>

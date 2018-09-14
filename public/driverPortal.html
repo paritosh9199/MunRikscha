@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<!-- ver 0.0.9 -->
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Driver Portal - Muenchen Rikscha</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/driver_portal.css" rel="stylesheet" type="text/css">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/spin.css" />
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/index.html">Rickscha Wala</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/index.html#g-maps">map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/index.html#tour-price">Tour Price</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/index.html#book-tour">Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/index.html#contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/index.html#team">Our Drivers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/index.html#portfolio">Tours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger active" id="log_menu_button" href="" onclick="log_out()">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="pageItems">
+            <div class="row">
+                <div class="col-lg-3 my-4">
+                    <div class="list-group">
+                        <a id="bt1_sod" onclick="setOvervDiv()" class="list-group-item">
+                            <i class="fas fa-home"></i> Dashboard</a>
+                        <a id="bt2_sld" onclick="setLocDiv()" class="list-group-item">
+                            <i class="fas fa-map-marker-alt"></i> Set location</a>
+                        <a id="bt1_sdd" onclick="setDetailDiv()" class="list-group-item">
+                            <i class="fas fa-cogs"></i> Setting</a>
+                    </div>
+                </div>
+                <!-- /.col-lg-3 -->
+                <!-- card title,card text,card header "card card-outline-secondary my-4" card-body -->
+                <div class="col-lg-9">
+                    <div id="mainOverView">
+                        <div class="card card-outline-primary my-4">
+                            <div class="card-title">
+                                <h1 class="card-header">Dash Board</h1>
+                            </div>
+                            <div class="card-body">
+                                <!-- user overview -->
+                                <div class="row">
+                                    <div class="col-lg-12 my-4">
+                                        <div class="card ">
+                                            <div class="card-body">
+                                                <h3 class="card-title" id="info-title">Information:</h3>
+                                                <hr>
+                                                <div class="row">
+                                                    <div id="info" class="col-lg-12">
+                                                        <div class="row">
+                                                            <div class="col-lg-4">
+
+                                                                <div id="photoThumbnail">
+                                                                    <img id="imageDp1" src="#"></img>
+                                                                    <br>
+                                                                    <!-- <hr> -->
+                                                                    <!-- <div id="phnNo"></div> -->
+                                                                </div>
+                                                                <br>
+
+                                                            </div>
+
+                                                            <div class="col-lg-8" id="info-desc">
+
+
+                                                                <p>
+                                                                    <div id="namePerson"></div>
+                                                                </p>
+                                                                <p>
+                                                                    <div class="text-muted" id="descDb"> Description goes here.
+                                                                        <!-- <a href="#">Edit</a> -->
+                                                                        <a href="#" data-toggle="modal" data-target="#desc-modal">Edit</a>
+                                                                    </div>
+                                                                    <hr>
+                                                                </p>
+
+                                                                <!-- <p>
+                                                                    <div id="email"></div>
+                                                                </p> -->
+                                                                <p>
+                                                                    <div id="price"></div>
+                                                                </p>
+                                                                <p>
+                                                                    <div class="form-inline">
+                                                                        <div id="seats"></div>
+                                                                    </div>
+                                                                </p>
+                                                                <p>
+                                                                    <div class="text-muted text-left">
+                                                                        <a href="#" data-toggle="modal" data-target="#info-modal">See All Information</a>
+                                                                        <!-- <a href="#" data-toggle="modal" data-target="#portfolioModal6">See All Information Lg</a>
+                                                                        portfolioModal6 -->
+                                                                    </div>
+                                                                </p>
+
+                                                                <!-- <div>Location valid till...Time t</div> -->
+
+                                                            </div>
+                                                        </div>
+                                                        <!-- info -->
+                                                    </div>
+                                                    <div id="infospnner" class="col-lg-12">
+                                                        <div class="infoSetter">
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <div id="spinnerInfo"></div>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <hr>
+                                            </div>
+                                            <!-- <div class="card-footer text-muted text-left">
+                                                <a href="" class="btn btn-info" data-toggle="modal" data-target="">Change Details</a>
+                                            </div> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 my-4">
+                                        <div class="card ">
+                                            <div class="card-body">
+                                                <h3 class="card-title" id="delete-info-title">Messages:</h3>
+                                                <hr>
+                                                <p class="card-text">
+                                                    <div id="msg">This is where all messages from admin will be displayed!</div>
+                                                    <br>
+                                                    <hr>
+                                                    <div id="admin-access">
+                                                        <button type="button" id="msg-send-model-btn" class="btn btn-info" data-toggle="modal" data-target="#msg-send-modal">Send message to drivers</button>
+                                                    </div>
+                                                </p>
+                                            </div>
+                                            <!-- <div class="card-footer text-muted text-left">
+                                                <a href="#" class="btn btn-info" data-toggle="modal" data-target="">See all messages</a>
+                                            </div> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 my-4">
+                                        <div class="card ">
+                                            <div class="card-body">
+                                                <h3 class="card-title" id="delete-info-title">Location Status:</h3>
+                                                <hr>
+                                                <!-- <p class="card-text"> -->
+                                                <div class=" text-left" id="locStatus">
+
+                                                </div>
+                                                <br>
+                                                <div id="locActive">
+
+                                                </div>
+                                                <!-- </p> -->
+                                                <hr>
+                                            </div>
+
+                                            <!-- <div class="card-footer text-muted text-left">
+                                                <button class="btn btn-info" id="refreshLoc">Refresh</button>
+                                            </div> -->
+                                        </div>
+                                    </div>
+
+
+                                    <!-- <div class="col-lg-12 my-4">
+                                        <div class="card ">
+                                            <div class="card-body">
+                                                <h3 class="card-title" id="delete-info-title">Send Message:</h3>
+                                                <hr>
+                                                <input type="text" class="form-control" id="subject" placeholder="Your Subject *">
+                                                <br>
+
+                                                <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+
+
+                                            </div>
+                                            <div class="card-footer text-muted text-left">
+                                                <a href="#" class="btn btn-info" data-toggle="modal" data-target="">Send Message</a>
+                                            </div>
+                                        </div>
+                                    </div> -->
+
+                                    <!-- <div class="col-lg-12 my-4">
+
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="locationChangeView">
+                        <div class="card card-outline-primary my-4">
+                            <div class="card-title">
+                                <h1 class="card-header">Set Location</h1>
+                            </div>
+                            <div class="card-body">
+                                <h3>Select a location on map</h3>
+                                <div id="map1" class="map"></div>
+                                <div class="loc_setter_para" id="info_loc1"></div>
+                                <div class="buttonsLoc">
+                                    <button type="button" class="btn btn-success" onclick="add_loc_firebase()">Save</button>
+                                    <button type="button" class="btn btn-danger" onclick="deleteMarkers()">Reset</button>
+                                </div>
+                                <!-- <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-mapLoc" role="tab" aria-controls="pills-mapLoc"
+                                            aria-selected="true">Select Location from Map</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-mapCoord" role="tab" aria-controls="pills-mapCoord"
+                                            aria-selected="false">Set Longitude and Latitude</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-rem" role="tab" aria-controls="pills-rem" aria-selected="false" >Renew Location</a>
+                                    </li> 
+                                </ul> -->
+                                <!-- <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-mapLoc" role="tabpanel">
+                                        <h3>Select a location on map</h3>
+                                        <div id="map1" class="map"></div>
+                                        <div class="loc_setter_para" id="info_loc1"></div>
+                                        <div class="buttonsLoc">
+                                            <button type="button" class="btn btn-success" onclick="add_loc_firebase()">Save</button>
+                                            <button type="button" class="btn btn-danger" onclick="deleteMarkers()">Reset</button>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-mapCoord" role="tabpanel">
+                                        <h3>Set a location on using Lng/Lat</h3>
+                                        <div class="form-group">
+                                            <label for="lat_val">Latitude</label>
+                                            <input type="number" class="form-control" id="lat_val" placeholder="Latitude">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lng_val">Logitude:</label>
+                                            <input type="number" class="form-control" id="lng_val" placeholder="Longitude">
+                                        </div>
+                                        <div class="loc_setter_para" id="info_loc2"></div>
+                                        <div class="buttonsLoc">
+                                            <button type="button" class="btn btn-success" onclick="add_loc_firebase2()">Save</button>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-rem" role="tabpanel">
+                                        <h3>Renew a previously stored location</h3>
+                                        <div class="loc_setter_para" id="info_loc3"></div>
+                                        <div class="buttonsLoc">
+                                            <button type="button" class="btn btn-success" onclick="add_loc_firebase3()">Renew</button>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div id="detailsChangeView">
+                        <div class="card card-outline-primary my-4">
+                            <div class="card-title">
+                                <h1 class="card-header">Settings</h1>
+                            </div>
+
+                            <div class="card-body">
+                                <div id="form_change_detail">
+                                    <ul class="nav nav-pills" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="addressNphone-tab" data-toggle="tab" href="#addrPhn" role="tab" aria-controls="addrPhnTab"
+                                                aria-selected="true">Details</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="socialLnk-tab" data-toggle="tab" href="#socialLnk" role="tab" aria-controls="socialLnkTab" aria-selected="false">Social Links</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Img-tab" data-toggle="tab" href="#ImgChng" role="tab" aria-controls="ImgTab" aria-selected="false">Image</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Lsc-tab" data-toggle="tab" href="#LscChng" role="tab" aria-controls="LscTab" aria-selected="false">License</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="settings-tab" data-toggle="tab" href="#SettingsChng" role="tab" aria-controls="stTab" aria-selected="false">Account settings</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="addrPhn" role="tabpanel" aria-labelledby="addressNphone-tab">
+                                            <div class="row">
+                                                <div class="col-lg-10 col-sm-12 mx-auto">
+                                                    <div class="modal-body">
+                                                        <!-- delete account -->
+                                                        <!-- class="card " -->
+                                                        <div>
+                                                            <!-- class="card-body" -->
+                                                            <div>
+                                                                <h3 class="card-title" id="delete-info-title">Change Address</h3>
+                                                                <hr>
+                                                                <div class="form-group">
+                                                                    <strong>
+                                                                        <label for="adrUsr">Address:</label>
+                                                                    </strong>
+                                                                    <input type="text" class="form-control" id="strUsr" placeholder="Street Address">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" id="ctyUsr" placeholder="City">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input type="number" class="form-control" id="pinUsr" placeholder="Zip Code">
+                                                                    <div id="errAdd"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-footer text-muted text-left">
+                                                                <button class="btn btn-info" id="save-details-addr">Change Address</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-10 col-sm-12 mx-auto">
+                                                    <div class="modal-body">
+                                                        <!-- delete account -->
+                                                        <!-- class="card " -->
+                                                        <div>
+                                                            <!-- class="card-body" -->
+                                                            <div>
+                                                                <h3 class="card-title" id="delete-info-title">Change Phone </h3>
+                                                                <hr>
+                                                                <div class="form-group">
+                                                                    <strong>
+                                                                        <label for="phnNumber">Phone Number:</label>
+                                                                    </strong>
+                                                                    <input type="tel" class="form-control" id="phnNumber" placeholder="Phone Number">
+                                                                    <div id="errPhn"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-footer text-muted text-left">
+                                                                <button class="btn btn-info" type="button" id="save-details-phn">Change Phone</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-10 col-sm-12 mx-auto">
+                                                    <div class="modal-body">
+                                                        <!-- delete account -->
+                                                        <!-- class="card " -->
+                                                        <div>
+                                                            <!-- class="card-body" -->
+                                                            <div>
+                                                                <h3 class="card-title" id="delete-info-title">Set Tour Price</h3>
+                                                                <hr>
+                                                                <strong>
+                                                                    <label for="tourPrice">Tour Price:</label>
+                                                                </strong>
+
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="inputGroupPrepend">€</span>
+                                                                    </div>
+                                                                    <input type="number" class="form-control" id="tourPrice" placeholder="Tour price" aria-describedby="inputGroupPrepend">
+                                                                </div>
+                                                                <br>
+                                                                <div id="errPrice"></div>
+                                                            </div>
+                                                            <div class="card-footer text-muted text-left">
+                                                                <button class="btn btn-info" id="save-details-price">Set price</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-10 col-sm-12 mx-auto">
+                                                    <div class="modal-body">
+                                                        <!-- delete account -->
+                                                        <!-- class="card " -->
+                                                        <div>
+                                                            <!-- class="card-body" -->
+                                                            <div>
+                                                                <h3 class="card-title" id="delete-info-title">Set Number of Seats</h3>
+                                                                <hr>
+                                                                <strong>
+                                                                    <label for="noSeats">Number of Seats:</label>
+                                                                </strong>
+                                                                <div class="form-group">
+                                                                    <input type="number" class="form-control" id="noSeats" placeholder="Number of Seats">
+                                                                </div>
+                                                                <div id="errSeats"></div>
+                                                            </div>
+                                                            <div class="card-footer text-muted text-left">
+                                                                <button class="btn btn-info" id="save-details-seats">Set the Seats</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="socialLnk" role="tabpanel" aria-labelledby="socialLnk-tab">
+                                            <div class="row">
+                                                <div class="col-lg-8 mx-auto">
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <strong>
+                                                                <label for="fbLink">Social links:</label>
+                                                            </strong>
+                                                            <input type="url" class="form-control" id="fbLink" placeholder="Facebook link">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="url" class="form-control" id="twitLink" placeholder="Twitter Link">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="url" class="form-control" id="webLnk" placeholder="Website link">
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" id="agreeCondSocial"> Save changes?
+                                                            </label>
+                                                        </div>
+                                                        <br>
+                                                        <p id="errorMsg2"></p>
+                                                        <button type="button" class="btn btn-success" id="save-social">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="ImgChng" role="tabpanel" aria-labelledby="Img-tab">
+                                            <div class="row">
+                                                <div class="modal-body" id="formPhoto">
+
+
+                                                    <div class="col-lg-10 col-sm-12 mx-auto">
+                                                        <div class="modal-body">
+                                                            <!-- delete account -->
+                                                            <!-- class="card " -->
+                                                            <div>
+                                                                <!-- class="card-body" -->
+                                                                <div>
+                                                                    <h3 class="card-title" id="delete-info-title">Upload new Image</h3>
+                                                                    <hr>
+                                                                    <div class="form-group">
+                                                                        <strong>
+                                                                            <label for="photoFile">File size should be less than 512kb</label>
+                                                                        </strong>
+                                                                        <input id="photoFile" accept="image/*" class="form-control" type="file">
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label>
+                                                                            <input type="checkbox" id="agreeCondImg"> Save changes?
+                                                                        </label>
+                                                                    </div>
+                                                                    <br>
+                                                                    <p id="errorMsg3"></p>
+                                                                </div>
+                                                                <div class="card-footer text-muted text-left">
+                                                                    <button type="button" class="btn btn-success" id="save-image">Save</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-lg-8 mx-auto">
+                                                    <div id="loaderPhoto" class="container">
+                                                        <!-- <center> -->
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <div class="modal-body form-inline" id="spinnerDiv1">
+                                                            <div class="spnner">
+                                                                <div id="spinner1"></div>
+                                                            </div>
+                                                            <div>
+                                                                <strong>
+                                                                    <p class="scrollText alignSpinner spnner" id="spinnerPara1">Uploading...</p>
+                                                                </strong>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <!-- </center> -->
+
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="LscChng" role="tabpanel" aria-labelledby="Lsc-tab">
+                                            <div class="row">
+
+                                                <div class="modal-body" id="formLsc">
+
+                                                    <div class="col-lg-10 col-sm-12 mx-auto">
+                                                        <div class="modal-body">
+                                                            <!-- delete account -->
+                                                            <!-- class="card " -->
+                                                            <div>
+                                                                <!-- class="card-body" -->
+                                                                <div>
+                                                                    <h3 class="card-title" id="delete-info-title">Upload License</h3>
+                                                                    <hr>
+                                                                    <div class="form-group">
+                                                                        <strong>
+                                                                            <label for="licenseFile">File size sholuld be less than 1Mb</label>
+                                                                        </strong>
+                                                                        <input id="licenseFile" accept=".pdf,.doc,.docx" class="form-control" type="file">
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label>
+                                                                            <input type="checkbox" id="agreeCondLsc"> Save changes?
+                                                                        </label>
+                                                                    </div>
+                                                                    <br>
+                                                                    <p id="errorMsg4"></p>
+                                                                </div>
+                                                                <div class="card-footer text-muted text-left">
+                                                                    <button type="button" class="btn btn-success" id="save-lsc">Save</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="col-lg-8 mx-auto">
+                                                    <div id="loaderLsc" class="container">
+                                                        <!-- <center> -->
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <div class="modal-body form-inline" id="spinnerDiv2">
+                                                            <div class="spnner">
+                                                                <div id="spinner2"></div>
+                                                            </div>
+                                                            <div>
+                                                                <strong>
+                                                                    <p class="scrollText alignSpinner spnner" id="spinnerPara2">Uploading...</p>
+                                                                </strong>
+                                                            </div>
+                                                        </div>
+                                                        <!-- </center> -->
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="SettingsChng" role="tabpanel" aria-labelledby="settings-tab">
+                                            <div class="row">
+                                                <!-- class = my-4 -->
+                                                <div class="col-lg-12 col-sm-12 mx-auto">
+                                                    <div class="modal-body">
+                                                        <!-- delete account -->
+                                                        <!-- class="card " -->
+                                                        <div>
+                                                            <!-- class="card-body" -->
+                                                            <div>
+                                                                <h3 class="card-title" id="delete-info-title">Delete my account</h3>
+                                                                <hr>
+                                                                <p class="card-text" id="delete-info-para">If you do not think you will use Driver Portal again and
+                                                                    would like your account deleted,we can take care of this
+                                                                    for you. Keep in mind that you will not be able retrieve
+                                                                    any of the content or information you have added.
+                                                                    <br> If you would still like your account deleted,click "Delete
+                                                                    Account".
+                                                                    <br>
+                                                                    <div class="text-muted text-left">
+                                                                        <a href="#">Learn more about account deletion</a>
+                                                                    </div>
+                                                                </p>
+                                                            </div>
+                                                            <div class="card-footer text-muted text-right">
+                                                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delModalCenter">Delete Account</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card -->
+
+            </div>
+            <!-- /.col-lg-9 -->
+
+        </div>
+    </div>
+
+    </div>
+
+
+    <br>
+    <br>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy;2018 Munich Rikscha</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-twitter "></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="/privacy_policy.html">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="delModalCenter" tabindex="-1" role="dialog" aria-labelledby="delModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="delModalLongTitle">Delete Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete your account?
+                    <br>
+                    <br> Please re-enter the password associated with this account.
+                    <p id="del-errorMsg"></p>
+                    <input type="password" class="form-control" id="delPasswordUsr" placeholder="Password">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="delete-account">Delete Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="info-modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">User Information</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h4 id="name-modal">Name</h4>
+                    <div id="dob-modal"></div>
+                    <div id="email-modal">Email</div>
+                    <div id="phone-modal">Phn</div>
+                    <hr>
+                    <div id="seats-modal">Seats</div>
+                    <div id="price-modal">$$</div>
+                    <div id="tax-modal">$Tax</div>
+                    <hr>
+                    <h5>Address</h5>
+                    <div id="addr-modal">Addr</div>
+                    <hr>
+                    <h5>Links</h5>
+                    <div id="web-modal">Links</div>
+                    <hr>
+                    <h5>Language</h5>
+                    <div id="lang-modal">Lang</div>
+                    <hr>
+                    <div id="reg-date-modal">Reg Date</div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="desc-modal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Set new Description</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <textarea class="form-control" id="desc-text" placeholder="Your new description *" required="required" data-validation-required-message="Please enter a description."></textarea>
+                    <p id="errorDesc"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info" id="update-desc">Update</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam
+                                    quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis
+                                    facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Window</li>
+                                    <li>Category: Photography</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fa fa-times"></i>
+                                    Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="msg-modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Messages</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="msg-modal-message"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="msg-send-modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Send message</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="subject-msg" placeholder="Your Subject *">
+                    <br>
+                    <textarea class="form-control" id="message-msg" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                    <p id="err-send-msg"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-info" id="send-msg-btn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyC3U-KEqnO_dbKKUqurcUpIGxBJjt5k5Cs",
+            authDomain: "munrikscha.firebaseapp.com",
+            databaseURL: "https://munrikscha.firebaseio.com",
+            projectId: "munrikscha",
+            storageBucket: "munrikscha.appspot.com",
+            messagingSenderId: "851973346657"
+        };
+        firebase.initializeApp(config);
+        var storage = firebase.storage();
+    </script>
+
+    <!-- Custom scripts for this template -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM6ESjnlD61xns0LxqGcjk7u27xo3s_2Q&callback=initMap" async
+        defer></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/driver_portal.js"></script>
+    <script src="js/map_driverPortal.js"></script>
+    <script src="js/driver_portal_settings.js" type="module"></script>
+    <script src="js/driver_portal_dashboard.js" type="module"></script>
+    <script src="js/message_engine.js" type="module"></script>
+
+
+
+</body>
+
+</html>
