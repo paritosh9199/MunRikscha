@@ -60,8 +60,8 @@ function initMap() {
             snapshot.forEach(function (childSnapshot) {
                 var childKey = childSnapshot.key;
                 var childData = childSnapshot.val();
-                console.log(childData);
-                var disp = childData.name.firstName+" "+childData.name.lastName+"<br>"+childData.phoneNumber;
+                // console.log(childData);
+                var disp = childData.name.firstName+" "+childData.name.lastName+"<br><a href='tel:"+childData.phoneNumber+"'>"+childData.phoneNumber+"</a>";
                 var content = {
                     "click": disp,
                     "hover": "you hovered on this driver"

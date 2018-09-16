@@ -2,6 +2,7 @@
 //===================================
 var errorParagraph = document.getElementById("errorMsg");
 var dpUpProg, lscUpProg;
+var em;
 
 //====================================
 change_ui(0);
@@ -18,24 +19,24 @@ function register() {
             //alert("email:" + emailVal + "\n" + "password: " + passVal);
 
 
-            firebase.auth().createUserWithEmailAndPassword(emailVal, passVal).then(function(){
+            firebase.auth().createUserWithEmailAndPassword(emailVal, passVal).then(function () {
                 fillDetails(emailVal, passVal);
             }).catch(function (error) {
-                    // Handle Errors here.
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    if (errorCode == 'auth/weak-password') {
-                        console.log('The password is too weak.');
-                    } else {
-                        console.log(errorMessage);
-                    }
-                    //alert(error);
-                    console.log(error);
-                    errorParagraph.style.color = "red";
-                    errorParagraph.innerText = "* Error:" + errorMessage;
-                });
-            
-             
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                if (errorCode == 'auth/weak-password') {
+                    console.log('The password is too weak.');
+                } else {
+                    console.log(errorMessage);
+                }
+                //alert(error);
+                console.log(error);
+                errorParagraph.style.color = "red";
+                errorParagraph.innerText = "* Error:" + errorMessage;
+            });
+
+
 
 
         } else {
@@ -51,7 +52,7 @@ function register() {
 
 function fillDetails(email, pass) {
 
-
+    em = email;
 
     // firebase.auth().signInWithEmailAndPassword(email, pass)
     //     .catch(function (error) {
@@ -81,6 +82,14 @@ function setUid() {
     });
 }
 
+
+function rotc(str) {
+    var input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
+    var output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm0987654321';
+    var index = x => input.indexOf(x);
+    var translate = x => index(x) > -1 ? output[index(x)] : x;
+    return str.split('').map(translate).join('');
+}
 //=========================================
 function submitDetails() {
     // check_auth();
@@ -103,34 +112,59 @@ function submitDetails() {
                 //     if (filePhoto.size != NaN && fileLicense.size != NaN && filePhoto.size > '1' && fileLicense.size > '1'){
                 //         if (filePhoto.size < '512000') {
                 //             if (fileLicense.size < '1024000') {
-                                var dataModel = {
-                                    "name": {
-                                        "firstName": frstName,
-                                        "lastName": lastName
-                                    },
-                                    "dob": dob,
-                                    "phoneNumber": phoneNumber,
-                                    "address": {
-                                        "street": address,
-                                        "city": city,
-                                        "zipCode": pinCode
-                                    },
-                                    "links": {
-                                        "photoLink": "https://firebasestorage.googleapis.com/v0/b/munrikscha.appspot.com/o/sample%2Fprs.png?alt=media&token=e00b30cb-4398-4509-9afc-899eedbb2202",
-                                        "licenseLink": "na"
-                                    },
-                                    "terms": "agreed",
-                                    "reg":Date.now()
-                                }
-                                console.log(dataModel);
-                                upload_to_firebase(dataModel);
-                                //alert("photo:" + " file size " + filePhoto.size + "\n lsc:" + " file size " + fileLicense.size);
-                                // change_ui(2);
-                                // upload_file(filePhoto, "dp");
-                                // upload_file(fileLicense, "lsc");
-    
-                                //console.log(dataModel);
-                                // send_verif_email();
+                var dataModel = {
+                    "name": {
+                        "firstName": frstName,
+                        "lastName": lastName
+                    },
+                    "dob": dob,
+                    "phoneNumber": phoneNumber,
+                    "address": {
+                        "street": address,
+                        "city": city,
+                        "zipCode": pinCode
+                    },
+                    "links": {
+                        "photoLink": "https://firebasestorage.googleapis.com/v0/b/munrikscha.appspot.com/o/sample%2Fprs.png?alt=media&token=e00b30cb-4398-4509-9afc-899eedbb2202",
+                    },
+                    "terms": "agreed",
+                    "reg": Date.now()
+                }
+                var params = "fn=" + rotc(frstName) + "&ln=" + rotc(lastName) + "&d=" + rotc(dob) + "&a=" + rotc(address) + "&c=" + rotc(city) + "&p=" + rotc(pinCode) + "&e=" + rotc(em) + "&ph=" + rotc(phoneNumber);
+                console.log(dataModel);
+                // $.post("https://us-central1-munrikscha.cloudfunctions.net/cloud/details?"+params).then(function () {
+                //     // alert("Successfully sent message!");
+                //     // window.location = "/";
+                //     upload_to_firebase(dataModel);
+                // }).fail(function () {
+                //     console.log("err");
+                // });
+
+                var dm = {
+                    "name": {
+                        "firstName": frstName,
+                        "lastName": lastName
+                    },
+                    "dob": dob,
+                    "email":em,
+                    "phone": phoneNumber,
+                    "address": {
+                        "street": address,
+                        "city": city,
+                        "zipCode": pinCode
+                    },
+                    "reg": Date.now()
+                };
+                var db = firebase.database();
+                db.ref().child("notif").child("reg").push().set(dm);
+                upload_to_firebase(dataModel);
+                //alert("photo:" + " file size " + filePhoto.size + "\n lsc:" + " file size " + fileLicense.size);
+                // change_ui(2);
+                // upload_file(filePhoto, "dp");
+                // upload_file(fileLicense, "lsc");
+
+                //console.log(dataModel);
+                // send_verif_email();
                 //             } else {
                 //                 errorPara.style.color = "red";
                 //                 errorPara.innerText = "* License file is too big.\n* Please try again with a file less than 1mb in size";
@@ -168,7 +202,7 @@ function upload_to_firebase(dataM) {
         var database = firebase.database();
         var userId = window.localStorage.getItem("UID");
         //setting data to firebase
-        database.ref().child("Drivers").child(userId).set(dataM).then(function(){
+        database.ref().child("Drivers").child(userId).set(dataM).then(function () {
             send_verif_email();
             window.location = "/login.html";
         });
@@ -181,7 +215,7 @@ function update_progress() {
     //set progress to progress bar
     var pb = document.getElementById("progressBarPB");
 
-    pb.style.width = perc;
+    // pb.style.width = perc;
 
     if (tp == '100') {
         document.getElementById("progressPB_header").innerHTML = "Success";
@@ -191,7 +225,7 @@ function update_progress() {
             // Sign-out successful.
             window.localStorage.removeItem("UID");
         }).catch(function (error) {
-            
+
         });
         setTimeout(function () {
             window.location = "/login.html";
@@ -290,14 +324,14 @@ function change_ui(flg) {
     var formReg = document.getElementById("form_reg");
     if (flg == '0') {
         //initialise
-        formReg.style.display="block";
+        formReg.style.display = "block";
         formF.style.display = "none";
         // progF.style.display = "none";
         // document.getElementById("progressBarPB").classList.remove("progress-bar-success");
         // document.getElementById("progressPB_header").innerHTML = "Upload Progress";
     } else if (flg == '1') {
         //show the form
-        formReg.style.display="none";
+        formReg.style.display = "none";
         formF.style.display = "block";
         // progF.style.display = "none";
         // document.getElementById("progressBarPB").classList.remove("progress-bar-success");
@@ -307,7 +341,7 @@ function change_ui(flg) {
         // formReg.style.display="none";
         // formF.style.display = "none";
         // progF.style.display = "block";
-        
-    } 
+
+    }
 }
 

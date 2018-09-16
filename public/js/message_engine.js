@@ -37,16 +37,20 @@ function msgPermSet(obj) {
     // console.log("my uid from message engine: " + userId);
     if (obj.adminUid != null && userId != null) {
         if (obj.adminUid == userId) {
+            // document.getElementById("admin-notif").innerHTML = "<div class='list-group notif-link'><a id='bt1_notif' href='/notification.html' class='list-group-item'><i class='fas fa-bell'></i> Notification</a></div>";
+            document.getElementById("admin-notif").style.display = "block";
             document.getElementById("msg-send-model-btn").style.display = "block";
             document.getElementById("send-msg-btn").addEventListener('click', function () {
                 sendMessage();
             });
         } else {
             document.getElementById("msg-send-model-btn").style.display = "none";
+            document.getElementById("admin-notif").style.display = "none";
         }
     } else {
         console.log("err: acc null");
         document.getElementById("msg-send-model-btn").style.display = "none";
+        document.getElementById("admin-notif").style.display = "none";
     }
 
 }
@@ -55,6 +59,9 @@ function setMsg() {
     document.getElementById("msg").innerHTML = "";
     document.getElementById("msg-modal-message").innerHTML = "";
     ref.on("value", function (snapshot) {
+        document.getElementById("msg").innerHTML = "";
+        document.getElementById("msg-modal-message").innerHTML = "";
+        
         var i = 0;
         var data = [];
         if (snapshot != null) {

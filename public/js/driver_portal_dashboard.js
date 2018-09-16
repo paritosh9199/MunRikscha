@@ -5,7 +5,7 @@ var user_object, loc_object;
 var loaded = false;
 var user_id = window.localStorage.getItem("UID");
 // console.log(user_id);
-console.log(Date.now());
+// console.log(Date.now());
 var ref = database.ref('Drivers/' + user_id);
 var ref1 = database.ref('loc/' + user_id);
 get_data_info();
@@ -20,9 +20,13 @@ setInterval(function () {
 }, 1000);
  //init
 //test cases
-if(!firebase.User.emailVerified){
-    alert("email not verified");
-}
+// console.log(firebase.auth().getCurrentUser.emailVerified);
+// if(firebase.auth().currentUser.emailVerified){
+//     console.log(firebase.auth().getCurrentUser.emailVerified);
+// }else{
+//     alert("email not verified");
+//     console.log(firebase.auth().currentUser.emailVerified);
+// }
 document.getElementById("update-desc").addEventListener('click', function () {
     setDescription();
 });
@@ -52,7 +56,7 @@ function get_data_info() {
         // user_object = childData;
         // var key = Object.keys(childData)[0];    //this will return 1st key.         
         // console.log(childData);
-        // console.log(user_object);
+        // console.log("user data"+user_object);
         setDetails(user_object);
     });
 }
@@ -142,6 +146,9 @@ function setDetails(obj) {
     var img = new Image();
     var taxobj = null;
     var taxRef = database.ref('tax');
+    if(obj == null){
+        window.location.href = "/driverPortal.html";
+    }
     taxRef.on("value", function (snapshot) {
         if (snapshot != null) {
             // var childData = snapshot.val();
@@ -157,16 +164,16 @@ function setDetails(obj) {
 
     document.getElementById("namePerson").innerHTML = "<strong>" + obj.name.firstName + " " + obj.name.lastName + "</strong>";
     document.getElementById("seats").innerHTML = "<strong>Seats: </strong>" + obj.seats;
-    document.getElementById("price").innerHTML = "<strong>Price:</strong> €" + obj.price;
+    document.getElementById("price").innerHTML = "<strong>Price:</strong> â‚¬" + obj.price;
     if(obj.seats!=null){
         document.getElementById("seats").innerHTML = "<strong>Seats: </strong>" + obj.seats;
     }else{
         document.getElementById("seats").innerHTML = "<strong>Seats: </strong>" + "N/A";
     }
     if(obj.price!=null){
-        document.getElementById("price").innerHTML = "<strong>Price:</strong> €" + obj.price;
+        document.getElementById("price").innerHTML = "<strong>Price:</strong> â‚¬" + obj.price;
     }else{
-        document.getElementById("price").innerHTML = "<strong>Price:</strong> €" + "N/A";
+        document.getElementById("price").innerHTML = "<strong>Price:</strong> â‚¬" + "N/A";
     }
     //======modal data =============
     //write test cases ... TODO
@@ -203,12 +210,12 @@ function setDetails(obj) {
         document.getElementById("seats-modal").innerHTML = "Seats: N/A";
     }
     if(obj.price!=null){
-        document.getElementById("price-modal").innerHTML = "Price: €" + obj.price;
+        document.getElementById("price-modal").innerHTML = "Price: â‚¬" + obj.price;
     }else{
         document.getElementById("price-modal").innerHTML = "Price: N/A";
     }
     // document.getElementById("seats-modal").innerHTML = "Seats: " + obj.seats;
-    // document.getElementById("price-modal").innerHTML = "Price: €" + obj.price;;
+    // document.getElementById("price-modal").innerHTML = "Price: â‚¬" + obj.price;;
     // document.getElementById("tax-modal").innerHTML = "Tax: "+taxobj.tx;
     //write iterator for lang todo
     document.getElementById("lang-modal").innerHTML = "---";
@@ -228,24 +235,24 @@ function setDetails(obj) {
     document.getElementById("imageDp1").src = obj.links.photoLink;
     var width = document.getElementById("imageDp1").naturalWidth;
     var height = document.getElementById("imageDp1").naturalWidth;
-    setTimeout(function () {
-        //for fast internet and cached data
-        loaded = imgLoaded(document.getElementById("imageDp1"));
-        if (!loaded) {
-            change_ui(1);
-        } else {
-            change_ui(0);
-        }
-    }, 100);
-    setTimeout(function () {
-        //for fast internet and cached data
-        loaded = imgLoaded(document.getElementById("imageDp1"));
-        if (!loaded) {
-            change_ui(1);
-        } else {
-            change_ui(0);
-        }
-    }, 200);
+    // setTimeout(function () {
+    //     //for fast internet and cached data
+    //     loaded = imgLoaded(document.getElementById("imageDp1"));
+    //     if (!loaded) {
+    //         change_ui(1);
+    //     } else {
+    //         change_ui(0);
+    //     }
+    // }, 100);
+    // setTimeout(function () {
+    //     //for fast internet and cached data
+    //     loaded = imgLoaded(document.getElementById("imageDp1"));
+    //     if (!loaded) {
+    //         change_ui(1);
+    //     } else {
+    //         change_ui(0);
+    //     }
+    // }, 200);
     setTimeout(function () {
         //for avg internet speeds
         loaded = imgLoaded(document.getElementById("imageDp1"));

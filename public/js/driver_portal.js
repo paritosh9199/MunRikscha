@@ -119,9 +119,9 @@ window.onload = check_auth();
 window.onpageshow = check_auth();
 window.onunload = check_auth();
 history.pushState(null, null, location.href);
-    window.onpopstate = function () {
-        history.go(1);
-    };
+window.onpopstate = function () {
+    history.go(1);
+};
 function change_ui(flg) {
     // var formF = document.getElementById("form_change_detail");
     // var progF = document.getElementById("progress_bar_div");
@@ -186,7 +186,7 @@ function change_ui(flg) {
 //                                 change_ui(1);
 //                                 upload_file(filePhoto, "dp");
 //                                 upload_file(fileLicense, "lsc");
-    
+
 //                                 //console.log(dataModel);
 //                                 // send_verif_email();
 //                             } else {
@@ -248,35 +248,52 @@ function setOvervDiv() {
     btn2.classList.remove("active");
     btn3.classList.remove("active");
 }
-
-function check_auth() {
-    var currentUser;
-
+function email_verif() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             currentUser = user.uid;
+            if (user.emailVerified === false) {
+                alert("email is not verified");
+                window.location.href="/email_verif.html"
+            }
             window.localStorage.setItem("UID", currentUser);
             menuDivs.style.display = "block";
 
-        } else {
-            window.location = "/login.html"
-
-            // No user is signed in.
         }
     });
-
-    
 }
+email_verif();
+function check_auth() {
+            var currentUser;
+
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    currentUser = user.uid;
+                    // if (user.emailVerified === false) {
+                    //     alert("email is not verified");
+                    // }
+                    window.localStorage.setItem("UID", currentUser);
+                    menuDivs.style.display = "block";
+
+                } else {
+                    window.location = "/login.html"
+
+                    // No user is signed in.
+                }
+            });
+
+
+        }
 
 
 
 function log_out() {
 
-    firebase.auth().signOut().then(function () {
-        // Sign-out successful.
-        window.localStorage.removeItem("UID");
-        check_auth();
-    }).catch(function (error) {
-        // An error happened.
-    });
-}
+            firebase.auth().signOut().then(function () {
+                // Sign-out successful.
+                window.localStorage.removeItem("UID");
+                window.location.href = "/login.html";
+            }).catch(function (error) {
+                // An error happened.
+            });
+        }

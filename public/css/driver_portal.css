@@ -273,9 +273,6 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   background-color: #019701;
 }
 
-.scrollText{
-  
-}
 
 .alignSpinner{
   font-size: 1.3em;
@@ -314,9 +311,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   padding: 10px;
 }
 
-#imageDp{
 
-}
 
 .centerLg{
   width: 200px;
@@ -452,3 +447,6 @@ body{
 
 }
   
+.notif-link{
+  margin-bottom: 12px;
+}

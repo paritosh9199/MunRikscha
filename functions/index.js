@@ -40,8 +40,7 @@ app.use(cors({ origin: true }));
 //     },2000);
 // });
 app.post("/send",function(request,response){
-    
-
+    sgMail.setApiKey();
     if (request.method !== "POST") {
         // response.send(405, 'HTTP Method ' + request.method + ' not allowed');
         // revanth.jamapana@gmail.com

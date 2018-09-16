@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<!-- ver 0.0.9 -->
 <html lang="en">
 
 <head>
@@ -19,10 +21,10 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/driver_portal.css" rel="stylesheet" type="text/css">
-    <link href="css/app.css" rel="stylesheet" type="text/css">
+    <!-- <link href="css/driver_portal.css" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" href="css/app_1.css" type="text/css">
 
 </head>
 
@@ -30,42 +32,95 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="/index.html"><span id="r" class="nv-txt">R</span>ikscha
+                    <span id="n" class="nv-txt">N</span><i class="fas fa-map-marker-alt"></i>w</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/index.html#g-maps">map</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/index.html#tour-price">Tour Price</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/index.html#book-tour">Book</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/index.html#contact">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/index.html#team">Our Drivers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/index.html#portfolio">Tours</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" id="log_menu_button" href="/driverPortal.html">Driver Portal</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+    <br>
+    <br>
+    <br>
+    <div id="verif1">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="/index.html">Rickscha Wala</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fa fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/index.html#g-maps">map</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/index.html#tour-price">Tour Price</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/index.html#book-tour">Book</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/index.html#contact">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/index.html#team">Our Drivers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/index.html#portfolio">Tours</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger active" id="log_menu_button" href="/driverPortal.html">Driver Portal</a>
-                    </li>
-                </ul>
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>Accout Verification</h2>
+                            <hr>
+                            <h5 class="card-title">Your email is not verified</h5>
+                            <p class="card-text">Please verify your email associated with this account.</p>
+                            <a id="send-verif-eml-btn"type="button" href="#" class="btn btn-primary">Send Verification email</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 ">
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    hey
+    <div id="verif2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>Accout Verification</h2>
+                            <hr>
+                            <h5 class="card-title">The email has been sent</h5>
+                            <p class="card-text">Please check your email account for ther verification email.</p>
+                            <!-- <a type="button" href="#" class="btn btn-primary">Send Verification email</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 ">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -78,14 +133,12 @@
                         <ul class="list-inline social-buttons">
                             <li class="list-inline-item">
                                 <a href="#">
-                                    <!-- <i class="fab fa-twitter "></i> -->
-                                    t
+                                    <i class="fab fa-twitter "></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="#">
-                                    <!-- <i class="fab fa-facebook"></i> -->
-                                    f
+                                    <i class="fab fa-facebook"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
@@ -98,7 +151,7 @@
                     <div class="col-md-4">
                         <ul class="list-inline quicklinks">
                             <li class="list-inline-item">
-                                <a href="/privacy_policy.html">Privacy Policy</a>
+                                <a href="#">Privacy Policy</a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="#">Terms of Use</a>
@@ -136,7 +189,7 @@
 
     <!-- Contact form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/email_veriif.js"></script>
+    <script src="js/email_verif_helper.js"></script>
 
 
 

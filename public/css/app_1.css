@@ -21,12 +21,7 @@ a:hover {
   color: #00bb00 !important;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -116,7 +111,13 @@ img::-moz-selection {
 
 #mainNav .navbar-brand {
   color: #00d400;
-  font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
+  /* font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive; */
+  /* font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial; */
+  font-family: 'Merienda', cursive;
+}
+
+.nv-txt {
+  font-size: 1.3em !important;
 }
 
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
@@ -166,8 +167,8 @@ img::-moz-selection {
   }
 }
 
-
 /* ============================================================== */
+
 footer {
   padding: 25px 0;
   text-align: center;
@@ -177,10 +178,11 @@ footer {
   bottom: 0;
 }
 
-@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
-  footer{
+@media (min-width:961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  footer {
     position: absolute;
-    margin-top:5rem;
+    margin-top: 5rem;
     left: 0;
     right: 0;
     bottom: 0;
